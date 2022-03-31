@@ -1,5 +1,3 @@
-//sadadsadsa dasdsa ds sda
-
 const path = require ('path')
 const express = require ('express')
 const hbs = require('hbs')
@@ -77,5 +75,5 @@ app.get('*',(req,res)=>{
 })
 
 app.listen(port, () => {
-    console.log ('Express has started listneding on port ', port)
+    console.log ('Express has started listneding on port',port)
 })
