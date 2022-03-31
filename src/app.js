@@ -41,10 +41,7 @@ app.get('/weather', (req,res) => {
         forecast(req.query,(error,data) => {
             if (!error) {
                 res.send({
-                    forecast: data,
-                    location: req.query,
-                    latitude: req.query.latitude,
-                    longitude: req.query.longitude
+                    forecast: data
                 })
             } else {
                 res.send ({
@@ -54,7 +51,7 @@ app.get('/weather', (req,res) => {
         })
     } else {
         res.send({
-            error: 'Missing latitude and longitude values'
+            error: 'Missing location'
         })
     }
 })
