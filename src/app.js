@@ -37,11 +37,12 @@ app.get('/about',(req,res)=>{
 })
 
 app.get('/weather', (req,res) => {
-    if (req.query.latitude && req.query.longitude) {
-        forecast(req.query.latitude,req.query.longitude,(error,data) => {
+    if (req.query) {
+        forecast(req.query,(error,data) => {
             if (!error) {
                 res.send({
                     forecast: data,
+                    location: req.query,
                     latitude: req.query.latitude,
                     longitude: req.query.longitude
                 })

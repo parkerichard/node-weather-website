@@ -1,7 +1,5 @@
-
 const weatherForm = document.querySelector('form')
-const latitude = document.querySelector('.lat')
-const longitude = document.querySelector('.lng')
+const address = document.querySelector('.loc')
 const errorMessage = document.querySelector('#error-message')
 const dataMessage = document.querySelector('#data-message')
 
@@ -11,7 +9,7 @@ weatherForm.addEventListener('submit',(e)=>{
     errorMessage.textContent = ''
     dataMessage.textContent = 'Loading...' 
 
-    fetch('/weather?latitude='+ latitude.value + '&longitude=' + longitude.value).then((response)=>{
+    fetch('/weather?query='+ address.value).then((response)=>{
         response.json().then((data) => {
         if(data.error) {
             dataMessage.textContent = data.error
